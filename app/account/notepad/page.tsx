@@ -1,13 +1,10 @@
-import { SignOutButton } from "@clerk/nextjs";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Notes",
+  description: "A place to jot down your thoughts",
 };
 
-export default function page() {
-  return (
-    <div>
-      <SignOutButton redirectUrl="/sign-in" />
-    </div>
-  );
+export default function NotepadPage() {
+  return <main className="">meow</main>;
 }

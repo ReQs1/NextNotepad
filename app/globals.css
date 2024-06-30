@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --text-primary: 17 24 39;
+    --text-secondary: 172 172 172;
+    --bg1: 255 255 255;
+    --bg2: 250 250 250;
+  }
+
+  [data-theme="dark"] {
+    --text-primary: 255 255 255;
+    --text-secondary: 172 172 172;
+    --bg1: 17 24 39;
+    --bg2: 30 30 30;
+  }
+}
+
+@layer base {
+  * {
+    transition: background-color 0.3s ease-in;
+  }
+}
