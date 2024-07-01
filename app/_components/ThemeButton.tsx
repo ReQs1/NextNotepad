@@ -3,16 +3,16 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import SpinnerMini from "@/app/_components/SpinnerMini";
 
 function ThemeButton() {
   const [isMounted, setIsMounted] = useState(false);
+
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
-
-  if (!isMounted) return "loading";
 
   function changeTheme() {
     if (theme === "light") {
@@ -21,6 +21,8 @@ function ThemeButton() {
       setTheme("light");
     }
   }
+
+  if (!isMounted) return <SpinnerMini />;
 
   return (
     <button onClick={changeTheme}>

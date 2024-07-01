@@ -21,7 +21,11 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body className={inter.className}>
-          <ThemeProvider enableSystem={false} defaultTheme="light">
+          <ThemeProvider
+            disableTransitionOnChange
+            enableSystem={false}
+            defaultTheme="light"
+          >
             {children}
           </ThemeProvider>
         </body>

@@ -10,8 +10,7 @@
 [X] sign in page
 [X] sign up page
 [X] setup drizzle and supabase
-[] make proper schema
-[] insert new user into db with api route
+[X] protect route
+[] add sidebar and mobile navbar with context
 [] notes page
 [] calendar page
-[] protect route

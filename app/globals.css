@@ -7,19 +7,31 @@
     --text-primary: 17 24 39;
     --text-secondary: 172 172 172;
     --bg1: 255 255 255;
-    --bg2: 250 250 250;
+    --bg2: 240 240 240;
   }
 
   [data-theme="dark"] {
-    --text-primary: 255 255 255;
-    --text-secondary: 172 172 172;
-    --bg1: 17 24 39;
-    --bg2: 30 30 30;
+    --text-primary: 238 238 238;
+    --text-secondary: 200 200 200;
+    --bg1: 34 34 34;
+    --bg2: 38 38 38;
   }
 }
 
-@layer base {
-  * {
-    transition: background-color 0.3s ease-in;
+@layer components {
+  .mini-spinner {
+    margin: 0;
+    width: 24px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid theme("colors.primary");
+    border-right-color: transparent;
+    animation: rotate 1s infinite linear;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(1turn);
+    }
   }
 }
