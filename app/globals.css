@@ -7,7 +7,7 @@
     --text-primary: 17 24 39;
     --text-secondary: 172 172 172;
     --bg1: 255 255 255;
-    --bg2: 240 240 240;
+    --bg2: 245 245 245;
   }
 
   [data-theme="dark"] {
