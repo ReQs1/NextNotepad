@@ -1,7 +1,5 @@
-import Sidebar from "@/app/_components/Sidebar";
 import TopNavbar from "@/app/_components/TopNavbar";
-import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
+import MobileNavbarProvider from "../_context/MobileNavbarProvider";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -10,7 +8,9 @@ type LayoutProps = {
 function Layout({ children }: LayoutProps) {
   return (
     <>
-      <TopNavbar />
+      <MobileNavbarProvider>
+        <TopNavbar />
+      </MobileNavbarProvider>
       <div className="flex h-screen bg-bg2">
         {/* <Sidebar /> */}
         {children}

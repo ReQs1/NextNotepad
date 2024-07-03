@@ -1,12 +1,17 @@
 import ThemeButton from "@/app/_components/ThemeButton";
-import SignOutBtn from "./SignOutBtn";
+import SignOutBtn from "@/app/_components/SignOutBtn";
+import BurgerButton from "@/app/_components/BurgerButton";
+import MobileNavbar from "@/app/_components/MobileNavbar";
 
 import { NotebookPen } from "lucide-react";
-import BurgerButton from "./BurgerButton";
 
 function TopNavbar() {
   return (
-    <nav className="px-6 lg:px-12 py-4 lg:py-5 bg-bg1 flex justify-between border-b border-b-secondary">
+    <nav
+      className="px-6 lg:px-12 py-4 lg:py-5 bg-bg1 flex justify-between border-b border-b-secondary"
+      aria-label="top-navbar"
+    >
+      <MobileNavbar />
       <div className="flex items-center gap-4 lg:gap-6">
         <BurgerButton />
         <NotebookPen />

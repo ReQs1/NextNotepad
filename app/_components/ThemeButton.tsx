@@ -25,8 +25,8 @@ function ThemeButton() {
   if (!isMounted) return <SpinnerMini />;
 
   return (
-    <button onClick={changeTheme}>
-      {theme === "light" ? <Sun color="#000" /> : <Moon color="#fff" />}
+    <button className="text-primary" onClick={changeTheme}>
+      {theme === "light" ? <Sun /> : <Moon />}
     </button>
   );
 }
