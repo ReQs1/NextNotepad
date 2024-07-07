@@ -11,7 +11,7 @@ function Layout({ children }: LayoutProps) {
       <MobileNavbarProvider>
         <TopNavbar />
       </MobileNavbarProvider>
-      <div className="flex h-screen bg-bg2">
+      <div className="flex flex-1 bg-bg2">
         {/* <Sidebar /> */}
         {children}
       </div>

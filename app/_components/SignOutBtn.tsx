@@ -2,26 +2,27 @@
 
 import { SignOutButton, useUser } from "@clerk/nextjs";
 import { LogOut } from "lucide-react";
-import { cn } from "@/app/_lib/utils";
 
-type SignOutBtnProps = {
-  className?: string;
-};
-
-function SignOutBtn({ className }: SignOutBtnProps) {
+function SignOutBtn() {
   const { isLoaded } = useUser();
 
   if (!isLoaded)
     return (
-      <span className={className}>
-        <LogOut />
-      </span>
+      <div className="flex items-center gap-3">
+        <span>
+          <LogOut />
+        </span>
+        <span>Sign Out</span>
+      </div>
     );
 
   return (
     <SignOutButton redirectUrl="/sign-in">
-      <button className={(cn("text-primary"), className)}>
-        <LogOut />
+      <button className="text-primary flex items-center gap-3">
+        <span>
+          <LogOut />
+        </span>
+        Sign out
       </button>
     </SignOutButton>
   );

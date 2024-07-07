@@ -16,13 +16,19 @@
     --bg1: 34 34 34;
     --bg2: 38 38 38;
   }
+
+  /* body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  } */
 }
 
 @layer components {
   .mini-spinner {
     margin: 0;
     width: 24px;
-    aspect-ratio: 1;
+    height: 24px;
     border-radius: 50%;
     border: 2px solid theme("colors.primary");
     border-right-color: transparent;

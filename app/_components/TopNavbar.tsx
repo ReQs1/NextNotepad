@@ -1,7 +1,6 @@
-import ThemeButton from "@/app/_components/ThemeButton";
-import SignOutBtn from "@/app/_components/SignOutBtn";
 import BurgerButton from "@/app/_components/BurgerButton";
 import MobileNavbar from "@/app/_components/MobileNavbar";
+import TopNavControls from "@/app/_components/TopNavControls";
 
 import { NotebookPen } from "lucide-react";
 
@@ -17,10 +16,7 @@ function TopNavbar() {
         <NotebookPen />
         <h1 className="font-semibold text-lg text-primary">Notepad</h1>
       </div>
-      <div className="flex items-center gap-6 lg:gap-8">
-        <ThemeButton />
-        <SignOutBtn />
-      </div>
+      <TopNavControls />
     </nav>
   );
 }
