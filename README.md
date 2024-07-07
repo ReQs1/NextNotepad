@@ -11,6 +11,8 @@
 [X] sign up page
 [X] setup drizzle and supabase
 [X] protect route
-[] add sidebar and mobile navbar with context
+[X] add mobile navbar
+[] add sidebar
 [] notes page
 [] calendar page
+[] re-design mobile navbar

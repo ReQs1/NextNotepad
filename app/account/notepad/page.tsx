@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function NotepadPage() {
-  return <main>meow</main>;
+  return <main className="flex-1">meow</main>;
 }

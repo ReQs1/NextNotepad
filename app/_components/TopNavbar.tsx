@@ -7,7 +7,7 @@ import { NotebookPen } from "lucide-react";
 function TopNavbar() {
   return (
     <nav
-      className="px-6 lg:px-12 py-4 lg:py-5 bg-bg1 flex justify-between border-b border-b-secondary"
+      className="px-6 py-4 bg-bg1 flex justify-between border-b border-b-secondary"
       aria-label="top-navbar"
     >
       <MobileNavbar />

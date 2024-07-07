@@ -12,7 +12,7 @@ function MobileNavbar() {
   return (
     <nav
       className={cn(
-        "fixed sm:hidden z-50 inset-0 transition-transform duration-500 ease-in-out bg-bg1 overflow-scroll",
+        "fixed sm:hidden z-50 inset-0 transition-transform duration-500 ease-in-out bg-bg1",
         {
           ["-translate-x-full"]: !isMobileNavbarOpen,
         }

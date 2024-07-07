@@ -16,12 +16,6 @@
     --bg1: 34 34 34;
     --bg2: 38 38 38;
   }
-
-  /* body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  } */
 }
 
 @layer components {
