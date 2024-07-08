@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={cn("h-screen flex flex-col", inter.className)}>
+        <body className={cn("h-dvh flex flex-col", inter.className)}>
           <ThemeProvider
             disableTransitionOnChange
             enableSystem={false}

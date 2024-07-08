@@ -10,7 +10,6 @@ function TopNavbar() {
       className="px-6 py-4 bg-bg1 flex justify-between border-b border-b-secondary"
       aria-label="top-navbar"
     >
-      <MobileNavbar />
       <div className="flex items-center gap-4 lg:gap-6">
         <BurgerButton />
         <NotebookPen />
