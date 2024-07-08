@@ -21,7 +21,7 @@ type MobileLinksType = {
 
 function MobileLinks({ onClick }: MobileLinksType) {
   return (
-    <div className="flex justify-center h-[calc(100%-60px)] pt-32 pb-20">
+    <div className="flex justify-center h-[calc(100%-60px)] pt-40 pb-16">
       <ul className="flex flex-col gap-20 text-3xl h-full">
         {links.map((link) => (
           <li
