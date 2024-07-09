@@ -12,11 +12,7 @@ type ContextType = {
   closeMobileNavbar: () => void;
 };
 
-const MobileNavbarContext = createContext<ContextType>({
-  isMobileNavbarOpen: false,
-  openMobileNavbar: () => {},
-  closeMobileNavbar: () => {},
-});
+const MobileNavbarContext = createContext<ContextType | undefined>(undefined);
 
 export default function MobileNavbarProvider({ children }: ProviderProps) {
   const [isMobileNavbarOpen, setIsMobileNavbarOpen] = useState(false);
