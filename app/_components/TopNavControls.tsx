@@ -35,7 +35,11 @@ function TopNavControls() {
 
   return (
     <div className="flex items-center gap-6">
-      <button className="text-primary" onClick={changeTheme}>
+      <button
+        className="text-primary"
+        onClick={changeTheme}
+        aria-label="theme switcher"
+      >
         {theme === "light" ? <Sun /> : <Moon />}
       </button>
       <UserButton />

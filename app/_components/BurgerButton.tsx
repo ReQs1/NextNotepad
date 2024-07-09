@@ -6,7 +6,11 @@ import { useMobileNavbar } from "@/app/_context/MobileNavbarProvider";
 function BurgerButton() {
   const { openMobileNavbar } = useMobileNavbar();
   return (
-    <button className="mr-4 sm:hidden" onClick={openMobileNavbar}>
+    <button
+      className="mr-4 sm:hidden"
+      onClick={openMobileNavbar}
+      aria-label="Open mobile navigation"
+    >
       <Menu size={28} />
     </button>
   );

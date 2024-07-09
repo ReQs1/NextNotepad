@@ -10,7 +10,7 @@ function MobileNavbar() {
   const { isMobileNavbarOpen, closeMobileNavbar } = useMobileNavbar();
 
   return (
-    <nav
+    <div
       className={cn(
         "fixed sm:hidden z-50 inset-0 transition-transform duration-500 ease-in-out bg-bg1",
         {
@@ -21,15 +21,13 @@ function MobileNavbar() {
       aria-hidden={!isMobileNavbarOpen}
     >
       <div className="flex items-center justify-between px-6 py-4">
-        <button className="" onClick={closeMobileNavbar}>
+        <button onClick={closeMobileNavbar} aria-label="Close mobile navbar">
           <X size={28} />
         </button>
-        <div className="flex items-center gap-5">
-          <TopNavControls />
-        </div>
+        <TopNavControls />
       </div>
       <MobileLinks onClick={closeMobileNavbar} />
-    </nav>
+    </div>
   );
 }
 

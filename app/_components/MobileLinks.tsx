@@ -21,14 +21,10 @@ type MobileLinksType = {
 
 function MobileLinks({ onClick }: MobileLinksType) {
   return (
-    <div className="flex justify-center h-[calc(100%-60px)] pt-40 pb-16">
+    <nav className="flex justify-center h-[calc(100%-60px)] pt-40 pb-16">
       <ul className="flex flex-col gap-20 text-3xl h-full">
         {links.map((link) => (
-          <li
-            key={link.href}
-            onClick={onClick}
-            className="text-primary hover:text-blue-400"
-          >
+          <li key={link.href} onClick={onClick} className="text-primary">
             <Link href={link.href} className="flex items-center gap-3">
               <span>{link.icon}</span>
               <p>{link.label}</p>
@@ -39,7 +35,7 @@ function MobileLinks({ onClick }: MobileLinksType) {
           <SignOutBtn />
         </li>
       </ul>
-    </div>
+    </nav>
   );
 }
 

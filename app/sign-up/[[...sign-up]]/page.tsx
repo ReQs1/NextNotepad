@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   const session = await auth();
   if (session.userId) redirect("/account/notepad");
+
   return (
     <main className="h-screen flex justify-center items-center bg-gray-300">
       <SignUp fallbackRedirectUrl="/account/notepad" />
