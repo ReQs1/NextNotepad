@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         primary: `rgb(var(--text-primary) / <alpha-value>)`,
         secondary: `rgb(var(--text-secondary) / <alpha-value>)`,
+        hoverAccent: `rgb(var(--hover-accent) / <alpha-value>)`,
         bg1: `rgb(var(--bg1) / <alpha-value>)`,
         bg2: `rgb(var(--bg2) / <alpha-value>)`,
       },

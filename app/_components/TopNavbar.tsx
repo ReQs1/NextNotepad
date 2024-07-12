@@ -5,7 +5,7 @@ import { NotebookPen } from "lucide-react";
 
 function TopNavbar() {
   return (
-    <header className="px-6 py-4 bg-bg1 flex justify-between border-b border-b-secondary">
+    <header className="px-6 py-4 bg-bg1 flex justify-between border-b border-b-secondary sticky top-0">
       <div className="flex items-center gap-4 lg:gap-6">
         <BurgerButton />
         <NotebookPen />

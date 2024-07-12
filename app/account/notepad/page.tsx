@@ -6,5 +6,11 @@ export const metadata: Metadata = {
 };
 
 export default function NotepadPage() {
-  return <main className="flex-1">meow</main>;
+  return (
+    <main className="flex-1 py-8 px-8">
+      {Array.from({ length: 200 }, (_, index) => (
+        <div key={index}>meow</div>
+      ))}
+    </main>
+  );
 }

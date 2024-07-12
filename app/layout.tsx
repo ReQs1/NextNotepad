@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import { ThemeProvider } from "next-themes";
 import { ClerkProvider } from "@clerk/nextjs";
-import { cn } from "./_lib/utils";
+import { cn } from "@/app/_lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +21,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={cn("h-dvh flex flex-col", inter.className)}>
+        <body
+          className={cn("flex flex-1 flex-col antialiased", inter.className)}
+        >
           <ThemeProvider
             disableTransitionOnChange
             enableSystem={false}

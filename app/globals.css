@@ -8,6 +8,7 @@
     --text-secondary: 172 172 172;
     --bg1: 255 255 255;
     --bg2: 245 245 245;
+    --hover-accent: 220 220 220;
   }
 
   [data-theme="dark"] {
@@ -15,6 +16,7 @@
     --text-secondary: 200 200 200;
     --bg1: 34 34 34;
     --bg2: 38 38 38;
+    --hover-accent: 85 85 85;
   }
 }
 
@@ -27,6 +29,10 @@
     border: 2px solid theme("colors.primary");
     border-right-color: transparent;
     animation: rotate 1s infinite linear;
+  }
+
+  .tooltip {
+    @apply font-semibold invisible opacity-0 bg-bg1 px-2 py-1 group-hover:visible group-hover:opacity-100 transition border border-secondary rounded-lg absolute top-1/2 -translate-y-1/2 right-0 translate-x-[110%] whitespace-nowrap z-50;
   }
 
   @keyframes rotate {
