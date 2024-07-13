@@ -32,7 +32,7 @@
   }
 
   .tooltip {
-    @apply font-semibold invisible opacity-0 bg-bg1 px-2 py-1 group-hover:visible group-hover:opacity-100 transition border border-secondary rounded-lg absolute top-1/2 -translate-y-1/2 right-0 translate-x-[110%] whitespace-nowrap z-50;
+    @apply invisible absolute right-0 top-1/2 z-50 -translate-y-1/2 translate-x-[110%] whitespace-nowrap rounded-lg border border-secondary bg-bg1 px-2 py-1 font-semibold opacity-0 transition group-hover:visible group-hover:opacity-100;
   }
 
   @keyframes rotate {

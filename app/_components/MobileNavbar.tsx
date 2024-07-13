@@ -2,9 +2,9 @@
 
 import { useMobileNavbar } from "@/app/_context/MobileNavbarProvider";
 import TopNavControls from "@/app/_components/TopNavControls";
+import MobileLinks from "@/app/_components/MobileLinks";
 import { cn } from "@/app/_lib/utils";
 import { X } from "lucide-react";
-import MobileLinks from "./MobileLinks";
 
 function MobileNavbar() {
   const { isMobileNavbarOpen, closeMobileNavbar } = useMobileNavbar();
@@ -12,10 +12,10 @@ function MobileNavbar() {
   return (
     <div
       className={cn(
-        "fixed sm:hidden z-50 inset-0 transition-transform duration-500 ease-in-out bg-bg1",
+        "fixed left-0 top-0 z-50 h-dvh w-full bg-bg1 transition-transform duration-500 ease-in-out sm:hidden",
         {
           ["-translate-x-full"]: !isMobileNavbarOpen,
-        }
+        },
       )}
       aria-label="mobile navigation"
       aria-hidden={!isMobileNavbarOpen}
