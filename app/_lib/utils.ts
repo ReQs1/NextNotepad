@@ -12,3 +12,10 @@ export function formatDate(date: string) {
     day: "numeric",
   });
 }
+
+export function formatBody(body: string, limit: number = 200) {
+  if (body.length >= limit) {
+    return body.substring(0, limit) + "...";
+  }
+  return body;
+}

@@ -1,5 +1,4 @@
-import { mockedData } from "@/app/_lib/mock-data";
-import { formatDate } from "@/app/_lib/utils";
+import NotesList from "@/app/_components/NotesList";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,25 +7,13 @@ export const metadata: Metadata = {
 };
 
 export default function NotepadPage() {
-  const data = [...mockedData, ...mockedData, ...mockedData];
   return (
-    <main className="flex-1 px-6 py-4 md:px-10">
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-10">
-        {data.map((note, id) => (
-          <div
-            key={id}
-            className="flex cursor-pointer flex-col gap-10 rounded-lg border-2 border-secondary/40 bg-bg1 px-6 py-4 shadow-md transition-[border] duration-500 hover:border-primary"
-          >
-            <div className="grid gap-1">
-              <h2 className="text-xl font-bold text-primary">{note.title}</h2>
-              <p className="text-sm font-medium text-secondary">
-                {formatDate(note.created_at)}
-              </p>
-            </div>
-            <p className="text-primary">{note.body}</p>
-          </div>
-        ))}
+    <main className="flex-1 px-6 py-10 md:px-10">
+      <div className="mb-10 flex gap-6">
+        <input type="text" placeholder="Search for a note" />
+        <button>Add Note</button>
       </div>
+      <NotesList />
     </main>
   );
 }
