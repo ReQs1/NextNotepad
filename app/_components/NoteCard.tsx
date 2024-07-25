@@ -1,5 +1,5 @@
 import { formatBody, formatDate } from "@/app/_lib/utils";
-import { Pen, Trash } from "lucide-react";
+import CardButtons from "@/app/_components/CardButtons";
 
 type Props = {
   note: {
@@ -23,10 +23,7 @@ function NoteCard({ note }: Props) {
         </p>
       </div>
       <p className="text-primary">{formatBody(body)}</p>
-      <div className="mt-auto flex gap-6">
-        <Trash className="text-primary" size={26} aria-label="delete a note" />
-        <Pen className="text-primary" size={26} aria-label="edit a note" />
-      </div>
+      <CardButtons />
     </div>
   );
 }

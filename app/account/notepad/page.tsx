@@ -1,4 +1,5 @@
 import NotesList from "@/app/_components/NotesList";
+import NotesTopInputs from "@/app/_components/NotesTopInputs";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,11 +9,8 @@ export const metadata: Metadata = {
 
 export default function NotepadPage() {
   return (
-    <main className="flex-1 px-6 py-10 md:px-10">
-      <div className="mb-10 flex gap-6">
-        <input type="text" placeholder="Search for a note" />
-        <button>Add Note</button>
-      </div>
+    <main className="flex-1 px-6 py-10 sm:px-10">
+      <NotesTopInputs />
       <NotesList />
     </main>
   );
