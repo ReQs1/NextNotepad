@@ -10,7 +10,15 @@ export const mockedData = [
     id: 2,
     userId: 1,
     title: "ToDo for Project",
-    body: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undo",
+    body: `1. Create a new project
+2. Add some tasks
+3. Assign tasks to team members
+4. Start working on tasks
+5. Review the project
+6. Deploy the project
+7. Celebrate
+8. Repeat
+    `,
     created_at: "2023-04-02T15:30:00Z",
   },
   {
@@ -26,47 +34,5 @@ export const mockedData = [
     title: "Workout Routine",
     body: "Monday: Chest, Tuesday: Back, Wednesday: Rest, Thursday: Arms, Friday: Legs",
     created_at: "2023-04-04T06:00:00Z",
-  },
-  {
-    id: 5,
-    userId: 2,
-    title: "Meeting Notes",
-    body: "Discuss quarterly goals, Review project timelines, Plan team building activity",
-    created_at: "2023-04-05T09:20:00Z",
-  },
-  {
-    id: 6,
-    userId: 1,
-    title: "Grocery List",
-    body: "Milk, Eggs, Bread, Butter",
-    created_at: "2023-04-01T12:00:00Z",
-  },
-  {
-    id: 7,
-    userId: 1,
-    title: "ToDo for Project",
-    body: "Finish the report, Call the client, Email the presentation",
-    created_at: "2023-04-02T15:30:00Z",
-  },
-  {
-    id: 8,
-    userId: 2,
-    title: "Books to Read",
-    body: "The Great Gatsby, War and Peace, To Kill a Mockingbird",
-    created_at: "2023-04-03T18:45:00Z",
-  },
-  {
-    id: 9,
-    userId: 3,
-    title: "Workout Routine",
-    body: "Monday: Chest, Tuesday: Back, Wednesday: Rest, Thursday: Arms, Friday: LegsMonday: Chest, Tuesday: Back, Wednesday: Rest, Thursday: Arms, Friday: LegsMonday: Chest, Tuesday: Back, Wednesday: Rest, Thursday: Arms, Friday: Legs",
-    created_at: "2023-04-04T06:00:00Z",
-  },
-  {
-    id: 10,
-    userId: 2,
-    title: "Meeting Notes",
-    body: "Discuss quarterly goals, Review project timelines, Plan team building activityDiscuss quarterly goals, Review project timelines, Plan team building activityDiscuss quarterly goals, Review project timelines, Plan team building activity",
-    created_at: "2023-04-05T09:20:00Z",
   },
 ];

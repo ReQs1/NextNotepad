@@ -15,6 +15,7 @@ function NotesTopInputs() {
           id="search"
           type="search"
           placeholder="Search a note"
+          autoComplete="off"
         />
       </div>
 

@@ -1,5 +1,6 @@
-import { formatBody, formatDate } from "@/app/_lib/utils";
 import CardButtons from "@/app/_components/CardButtons";
+import { formatBody } from "@/app/_lib/utils";
+import NoteCardTitle from "@/app/_components/NoteCardTitle";
 
 type Props = {
   note: {
@@ -14,15 +15,10 @@ function NoteCard({ note }: Props) {
 
   return (
     <div className="flex min-h-72 cursor-pointer flex-col gap-10 rounded-lg border-2 border-secondary/40 bg-bg1 px-6 py-4 shadow-md transition-[border] duration-300 hover:border-primary/80">
-      <div className="grid gap-1">
-        <h2 className="text-xl font-bold text-primary">
-          {formatBody(title, 20)}
-        </h2>
-        <p className="text-sm font-medium text-secondary">
-          {formatDate(created_at)}
-        </p>
-      </div>
-      <p className="text-primary">{formatBody(body)}</p>
+      <NoteCardTitle title={title} created_at={created_at} />
+      <pre className="whitespace-pre-line text-primary">
+        {formatBody(body, 125)}
+      </pre>
       <CardButtons />
     </div>
   );
