@@ -6,11 +6,11 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatDate(date: string) {
+export function formatDate(date: Date) {
   return format(date, "MMM dd, yyyy");
 }
 
-export function formatBody(body: string, limit: number) {
+export function formatContent(body: string, limit: number) {
   if (body.length >= limit) {
     return body.substring(0, limit) + "...";
   }

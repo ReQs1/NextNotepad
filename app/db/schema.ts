@@ -1,17 +1,9 @@
-import { pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
-
-// export const users = pgTable("users", {
-//   id: varchar("id", { length: 124 }).primaryKey(),
-//   username: text("username"),
-//   email: varchar("email"),
-//   image: text("image"),
-//   created_at: timestamp("created_at").defaultNow(),
-// });
+import { pgTable, serial, timestamp, varchar } from "drizzle-orm/pg-core";
 
 export const notes = pgTable("notes", {
   id: serial("id").primaryKey(),
-  userId: serial("user_id"),
-  title: varchar("title", { length: 256 }),
-  body: text("body"),
-  created_at: timestamp("created_at").defaultNow(),
+  userId: varchar("user_id").notNull(),
+  title: varchar("title", { length: 40 }).notNull(),
+  body: varchar("body", { length: 1000 }).notNull(),
+  created_at: timestamp("created_at").defaultNow().notNull(),
 });
