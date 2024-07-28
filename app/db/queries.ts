@@ -5,10 +5,10 @@ export async function getNotes() {
   const session = await auth();
   const { userId } = session;
 
-  if (!userId) throw new Error("User ID not found");
+  if (!userId) throw new Error("Unauthorized");
 
   const notes = await db.query.notes.findMany({
-    where: (notes, { eq }) => eq(notes.userId, userId!),
+    where: (notes, { eq }) => eq(notes.userId, userId),
   });
 
   if (!notes) throw new Error("Couldn't fetch notes");

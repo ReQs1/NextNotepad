@@ -13,7 +13,7 @@ export default async function Page() {
   if (session.userId) redirect("/account/notepad");
 
   return (
-    <main className="h-screen flex justify-center items-center bg-gray-300">
+    <main className="flex h-screen items-center justify-center bg-gray-300">
       <SignIn fallbackRedirectUrl="/account/notepad" />
     </main>
   );
