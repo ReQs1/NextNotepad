@@ -9,12 +9,20 @@ export const metadata: Metadata = {
   description: "A place to jot down your thoughts.",
 };
 
-export default function NotepadPage() {
+type Props = {
+  searchParams?: {
+    search?: string;
+  };
+};
+
+export default function NotepadPage({ searchParams }: Props) {
+  const search = searchParams?.search ?? "";
+
   return (
     <main className="flex-1 px-6 py-10 sm:px-10">
       <NotesTopInputs />
       <Suspense fallback={<Spinner />}>
-        <NotesList />
+        <NotesList searchQuery={search} />
       </Suspense>
     </main>
   );

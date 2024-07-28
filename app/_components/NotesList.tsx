@@ -1,8 +1,17 @@
 import NoteCard from "@/app/_components/NoteCard";
 import { getNotes } from "@/app/_lib/queries";
 
-async function NotesList() {
+async function NotesList({ searchQuery }: { searchQuery: string }) {
   const notes = await getNotes();
+  let filteredNotes;
+
+  if (searchQuery) {
+    filteredNotes = notes.filter((note) => {
+      return note.title.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+  } else {
+    filteredNotes = notes;
+  }
 
   const isEmpty = notes.length === 0;
 
@@ -15,7 +24,7 @@ async function NotesList() {
 
   return (
     <ul className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-10">
-      {notes.map((note) => (
+      {filteredNotes.map((note) => (
         <NoteCard key={note.id} note={note} />
       ))}
     </ul>
