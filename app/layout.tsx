@@ -21,7 +21,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={cn("flex flex-col antialiased", inter.className)}>
+        <body
+          className={cn("flex min-h-dvh flex-col antialiased", inter.className)}
+        >
           <ThemeProvider
             disableTransitionOnChange
             enableSystem={false}
