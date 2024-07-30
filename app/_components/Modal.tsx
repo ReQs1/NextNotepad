@@ -27,7 +27,7 @@ function Modal({ children, isOpen, setIsOpen }: Props) {
     }
   }, [isOpen]);
 
-  function onDismiss(event: SyntheticEvent<HTMLDialogElement, Event>) {
+  function onDismiss() {
     setIsOpen(false);
   }
 
