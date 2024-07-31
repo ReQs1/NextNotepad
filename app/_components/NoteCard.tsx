@@ -1,6 +1,6 @@
-import CardButtons from "@/app/_components/CardButtons";
 import NoteCardTitle from "@/app/_components/NoteCardTitle";
 import { formatContent } from "@/app/_lib/utils";
+import { Pen, Trash } from "lucide-react";
 
 type Props = {
   note: {
@@ -21,7 +21,14 @@ function NoteCard({ note }: Props) {
       <pre className="whitespace-pre-line text-primary">
         {formatContent(body, 125)}
       </pre>
-      <CardButtons />
+      <div className="mt-auto flex gap-6">
+        <button aria-label="delete a note" className="text-primary">
+          <Trash size={26} />
+        </button>
+        <button aria-label="edit a note" className="text-primary">
+          <Pen size={26} />
+        </button>
+      </div>
     </li>
   );
 }

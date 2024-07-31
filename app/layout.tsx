@@ -19,20 +19,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={cn("flex min-h-dvh flex-col antialiased", inter.className)}
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={cn("flex min-h-dvh flex-col antialiased", inter.className)}
+      >
+        <ThemeProvider
+          disableTransitionOnChange
+          enableSystem={false}
+          defaultTheme="light"
         >
-          <ThemeProvider
-            disableTransitionOnChange
-            enableSystem={false}
-            defaultTheme="light"
-          >
-            {children}
-          </ThemeProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+          <ClerkProvider afterSignOutUrl="/sign-in">{children}</ClerkProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

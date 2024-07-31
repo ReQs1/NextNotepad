@@ -33,7 +33,7 @@ function SidebarLinks() {
       ))}
 
       <div className="mt-auto flex cursor-pointer rounded-full p-2 transition-colors duration-300 hover:bg-hoverAccent">
-        <SignOutButton>
+        <SignOutButton redirectUrl="/sign-in">
           <button>
             <LogOut />
           </button>

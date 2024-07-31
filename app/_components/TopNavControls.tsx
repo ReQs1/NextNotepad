@@ -28,7 +28,7 @@ function TopNavControls() {
 
   if (!isMounted)
     return (
-      <div className="w-16 flex items-center justify-center">
+      <div className="flex w-16 items-center justify-center">
         <SpinnerMini />
       </div>
     );
