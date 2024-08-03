@@ -6,7 +6,6 @@ import {
   MouseEvent,
   ReactNode,
   SetStateAction,
-  SyntheticEvent,
   useEffect,
   useRef,
 } from "react";
@@ -19,22 +18,20 @@ type Props = {
 };
 
 function Modal({ children, isOpen, setIsOpen }: Props) {
-  const dialogRef = useRef<ElementRef<"dialog">>(null);
+  const modalRef = useRef<ElementRef<"div">>(null);
 
   useEffect(() => {
-    if (isOpen) {
-      dialogRef.current?.showModal();
+    function onEscClose(e: KeyboardEvent) {
+      if (e.code === "Escape") setIsOpen(false);
     }
-  }, [isOpen]);
 
-  function onDismiss() {
-    setIsOpen(false);
-  }
+    window.addEventListener("keypress", onEscClose);
 
-  function handleCLickOutside(
-    event: MouseEvent<HTMLDialogElement, globalThis.MouseEvent>,
-  ) {
-    if (dialogRef.current && dialogRef.current === event.target) {
+    return () => window.removeEventListener("keypress", onEscClose);
+  }, [setIsOpen]);
+
+  function handleClickOutside(e: MouseEvent<Element, globalThis.MouseEvent>) {
+    if (modalRef.current === e.target) {
       setIsOpen(false);
     }
   }
@@ -42,14 +39,14 @@ function Modal({ children, isOpen, setIsOpen }: Props) {
   return (
     isOpen &&
     createPortal(
-      <dialog
-        ref={dialogRef}
-        onClose={onDismiss}
-        onClick={handleCLickOutside}
-        className="backdrop:backdrop-blur-sm"
+      <div
+        role="modal"
+        ref={modalRef}
+        className="absolute left-0 top-0 z-50 flex h-dvh w-dvw items-center justify-center backdrop-blur-md"
+        onClick={handleClickOutside}
       >
         {children}
-      </dialog>,
+      </div>,
       document.body,
     )
   );

@@ -4,6 +4,7 @@ import "@/app/globals.css";
 import { ThemeProvider } from "next-themes";
 import { ClerkProvider } from "@clerk/nextjs";
 import { cn } from "@/app/_lib/utils";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body
         className={cn("flex min-h-dvh flex-col antialiased", inter.className)}
       >
+        <Toaster position="bottom-center" />
         <ThemeProvider
           disableTransitionOnChange
           enableSystem={false}

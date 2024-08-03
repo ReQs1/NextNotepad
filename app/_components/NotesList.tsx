@@ -15,15 +15,15 @@ async function NotesList({ searchQuery }: { searchQuery: string }) {
   let filteredNotes;
 
   if (searchQuery) {
-    filteredNotes = notes.filter((note) => {
-      return note.title.toLowerCase().includes(searchQuery.toLowerCase());
-    });
+    filteredNotes = notes.filter((note) =>
+      note.title.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
   } else {
     filteredNotes = notes;
   }
 
   return (
-    <ul className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-10">
+    <ul className="grid grid-cols-[repeat(auto-fill,minmax(290,1fr))] gap-10">
       {filteredNotes.map((note) => (
         <NoteCard key={note.id} note={note} />
       ))}
