@@ -23,7 +23,7 @@ async function NotesList({ searchQuery }: { searchQuery: string }) {
   }
 
   return (
-    <ul className="grid grid-cols-[repeat(auto-fill,minmax(290,1fr))] gap-10">
+    <ul className="grid grid-cols-[repeat(auto-fill,minmax(290px,1fr))] gap-10">
       {filteredNotes.map((note) => (
         <NoteCard key={note.id} note={note} />
       ))}
