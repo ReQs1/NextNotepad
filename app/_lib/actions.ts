@@ -16,7 +16,6 @@ export const addNote = addProcedure
         body: input.body,
         userId: ctx,
       };
-
       await db.insert(notes).values(newNote);
     } catch (error) {
       throw new Error("Something went wrong");

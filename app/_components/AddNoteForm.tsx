@@ -26,22 +26,21 @@ function AddNoteForm({ setIsOpen }: Props) {
   });
   const { theme } = useTheme();
 
+  const toastStyle = {
+    background: `${theme === "light" ? "rgb(255 255 255) " : "rgb(34 34 34)"}`,
+    color: `${theme === "light" ? "rgb(17 24 39)" : "rgb(238 238 238)"}`,
+  };
+
   const { isPending, execute } = useServerAction(addNote, {
     onSuccess: () => {
       toast.success("Note made!", {
-        style: {
-          background: `${theme === "light" ? "rgb(255 255 255) " : "rgb(34 34 34)"}`,
-          color: `${theme === "light" ? "rgb(17 24 39)" : "rgb(238 238 238)"}`,
-        },
+        style: toastStyle,
       });
       setIsOpen(false);
     },
     onError: () => {
       toast.error("Couldn't make your note", {
-        style: {
-          background: `${theme === "light" ? "rgb(255 255 255) " : "rgb(34 34 34)"}`,
-          color: `${theme === "light" ? "rgb(17 24 39)" : "rgb(238 238 238)"}`,
-        },
+        style: toastStyle,
       });
     },
   });
@@ -75,13 +74,21 @@ function AddNoteForm({ setIsOpen }: Props) {
           ></textarea>
           <p className="mt-1 text-sm text-red-500">{errors.body?.message}</p>
         </div>
-        <div className="flex justify-end">
+        {/* <div className="flex justify-end">
           <button
             disabled={isPending}
             className="rounded-md bg-primary p-2 font-semibold text-bg1 transition-colors duration-300 hover:bg-primary/70 disabled:cursor-not-allowed disabled:bg-primary/70"
           >
             Add Note
           </button>
+        </div> */}
+        <div className="flex justify-end">
+          <input
+            type="submit"
+            disabled={isPending}
+            className="rounded-md bg-primary p-2 font-semibold text-bg1 transition-colors duration-300 hover:bg-primary/70 disabled:bg-primary/70"
+            value={isPending ? "Adding note..." : "Add Note"}
+          />
         </div>
       </form>
     </div>
