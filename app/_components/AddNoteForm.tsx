@@ -48,6 +48,7 @@ function AddNoteForm({ setIsOpen }: Props) {
   return (
     <div className="w-full max-w-[600px] rounded-xl border border-gray-200 bg-bg1 px-3 py-5 shadow-lg sm:p-6">
       <h2 className="mb-4 text-2xl font-semibold text-primary">Add a note</h2>
+
       <form onSubmit={handleSubmit((values) => execute(values))}>
         <div className="mb-4">
           <label htmlFor="title" className="block text-lg font-semibold">
@@ -61,6 +62,7 @@ function AddNoteForm({ setIsOpen }: Props) {
           />
           <p className="mt-1 text-sm text-red-500">{errors.title?.message}</p>
         </div>
+
         <div className="mb-4">
           <label htmlFor="content" className="block text-lg font-semibold">
             Content
@@ -74,14 +76,7 @@ function AddNoteForm({ setIsOpen }: Props) {
           ></textarea>
           <p className="mt-1 text-sm text-red-500">{errors.body?.message}</p>
         </div>
-        {/* <div className="flex justify-end">
-          <button
-            disabled={isPending}
-            className="rounded-md bg-primary p-2 font-semibold text-bg1 transition-colors duration-300 hover:bg-primary/70 disabled:cursor-not-allowed disabled:bg-primary/70"
-          >
-            Add Note
-          </button>
-        </div> */}
+
         <div className="flex justify-end">
           <input
             type="submit"
