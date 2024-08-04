@@ -20,6 +20,7 @@ type Props = {
 function Modal({ children, isOpen, setIsOpen }: Props) {
   const modalRef = useRef<ElementRef<"div">>(null);
 
+  // Close modal on escape key press
   useEffect(() => {
     function onEscClose(e: KeyboardEvent) {
       if (e.code === "Escape") setIsOpen(false);
@@ -30,11 +31,18 @@ function Modal({ children, isOpen, setIsOpen }: Props) {
     return () => window.removeEventListener("keypress", onEscClose);
   }, [setIsOpen]);
 
-  function handleClickOutside(e: MouseEvent<Element, globalThis.MouseEvent>) {
-    if (modalRef.current === e.target) {
-      setIsOpen(false);
+  // Close modal on outside click
+  useEffect(() => {
+    function handleClickOutside(e: Event) {
+      if (modalRef.current === e.target) {
+        setIsOpen(false);
+      }
     }
-  }
+
+    window.addEventListener("mousedown", handleClickOutside);
+
+    return () => window.removeEventListener("mousedown", handleClickOutside);
+  }, [setIsOpen]);
 
   return (
     isOpen &&
@@ -43,7 +51,6 @@ function Modal({ children, isOpen, setIsOpen }: Props) {
         role="modal"
         ref={modalRef}
         className="absolute left-0 top-0 z-50 flex h-dvh w-dvw items-center justify-center backdrop-blur-md"
-        onClick={handleClickOutside}
       >
         {children}
       </div>,
