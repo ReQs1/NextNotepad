@@ -1,6 +1,7 @@
+import DeleteNoteModal from "@/app/_components/DeleteNoteModal";
 import NoteCardTitle from "@/app/_components/NoteCardTitle";
 import { formatContent } from "@/app/_lib/utils";
-import { Pen, Trash } from "lucide-react";
+import { Pen } from "lucide-react";
 
 type Props = {
   note: {
@@ -13,18 +14,16 @@ type Props = {
 };
 
 function NoteCard({ note }: Props) {
-  const { title, created_at, body } = note;
+  const { id: noteId, title, created_at, body } = note;
 
   return (
-    <li className="flex max-h-[350px] min-h-72 cursor-pointer flex-col gap-10 rounded-lg border-2 border-secondary/40 bg-bg1 px-6 py-4 shadow-md transition-[border] duration-300 hover:border-primary/80">
+    <li className="flex max-h-[350px] min-h-72 cursor-pointer flex-col gap-8 rounded-lg border-2 border-secondary/40 bg-bg1 px-6 py-4 shadow-md transition-[border] duration-300 hover:border-primary/80">
       <NoteCardTitle title={title} created_at={created_at} />
-      <pre className="overflow-auto whitespace-pre-line text-primary">
+      <p className="overflow-hidden whitespace-pre-line text-primary">
         {formatContent(body, 125)}
-      </pre>
+      </p>
       <div className="mt-auto flex gap-6">
-        <button aria-label="delete a note" className="text-primary">
-          <Trash size={26} />
-        </button>
+        <DeleteNoteModal noteId={noteId} />
         <button aria-label="edit a note" className="text-primary">
           <Pen size={26} />
         </button>

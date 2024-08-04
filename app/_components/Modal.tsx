@@ -26,9 +26,9 @@ function Modal({ children, isOpen, setIsOpen }: Props) {
       if (e.code === "Escape") setIsOpen(false);
     }
 
-    window.addEventListener("keypress", onEscClose);
+    window.addEventListener("keydown", onEscClose);
 
-    return () => window.removeEventListener("keypress", onEscClose);
+    return () => window.removeEventListener("keydown", onEscClose);
   }, [setIsOpen]);
 
   // Close modal on outside click
@@ -44,13 +44,24 @@ function Modal({ children, isOpen, setIsOpen }: Props) {
     return () => window.removeEventListener("mousedown", handleClickOutside);
   }, [setIsOpen]);
 
+  //preventing user from scrolling when modal is opened
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
   return (
     isOpen &&
     createPortal(
       <div
         role="modal"
         ref={modalRef}
-        className="absolute left-0 top-0 z-50 flex h-dvh w-dvw items-center justify-center backdrop-blur-md"
+        className="absolute left-0 top-0 z-50 flex h-dvh w-dvw items-center justify-center backdrop-blur-sm"
       >
         {children}
       </div>,
