@@ -16,7 +16,7 @@ function DeleteNoteButton({ noteId }: Props) {
   return (
     <>
       <button
-        aria-label="delete a note"
+        aria-label="open delete note modal"
         className="text-primary transition-colors duration-300 hover:text-primary/50"
         onClick={(e) => {
           e.stopPropagation();
