@@ -23,7 +23,9 @@ export const addNote = authedProcedure
       };
       await db.insert(notes).values(newNote);
     } catch (error) {
-      throw new Error("Something went wrong");
+      throw new Error(
+        error instanceof Error ? error.message : "Something went wrong",
+      );
     }
 
     revalidatePath("/account/notepad");
