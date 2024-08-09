@@ -9,6 +9,7 @@ export async function getNotes() {
 
   const notes = await db.query.notes.findMany({
     where: (notes, { eq }) => eq(notes.userId, userId),
+    orderBy: (notes, { desc }) => desc(notes.created_at),
   });
 
   if (!notes) throw new Error("Couldn't fetch notes");

@@ -1,16 +1,11 @@
 import DeleteNoteModal from "@/app/_components/DeleteNoteModal";
+import EditNoteModal from "@/app/_components/EditNoteModal";
 import NoteCardTitle from "@/app/_components/NoteCardTitle";
+import { Note } from "@/app/_lib/types";
 import { formatContent } from "@/app/_lib/utils";
-import { Pen } from "lucide-react";
 
 type Props = {
-  note: {
-    title: string;
-    created_at: Date;
-    body: string;
-    userId: string;
-    id: number;
-  };
+  note: Note;
 };
 
 function NoteCard({ note }: Props) {
@@ -24,9 +19,7 @@ function NoteCard({ note }: Props) {
       </p>
       <div className="mt-auto flex gap-6">
         <DeleteNoteModal noteId={noteId} />
-        <button aria-label="edit a note" className="text-primary">
-          <Pen size={26} />
-        </button>
+        <EditNoteModal note={note} />
       </div>
     </li>
   );
