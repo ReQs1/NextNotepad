@@ -1,21 +1,25 @@
 "use client";
 
-import { addNote } from "@/app/_lib/actions";
+import { editNote } from "@/app/_lib/actions";
+import { Note } from "@/app/_lib/types";
+import { NoteSchema } from "@/app/_lib/zodSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Dispatch, SetStateAction } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { z } from "zod";
 import { useServerAction } from "zsa-react";
-import { NoteSchema } from "@/app/_lib/zodSchemas";
-import { X } from "lucide-react";
 
 type Props = {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
+  note: Note;
 };
 
-function AddNoteForm({ setIsOpen }: Props) {
+function EditNoteForm({ setIsOpen, note }: Props) {
+  const { title, body, id: noteId } = note;
+
   const {
     register,
     handleSubmit,
@@ -23,8 +27,8 @@ function AddNoteForm({ setIsOpen }: Props) {
   } = useForm<z.infer<typeof NoteSchema>>({
     resolver: zodResolver(NoteSchema),
     defaultValues: {
-      title: "",
-      body: "",
+      title,
+      body,
     },
   });
   const { theme } = useTheme();
@@ -34,15 +38,15 @@ function AddNoteForm({ setIsOpen }: Props) {
     color: `${theme === "light" ? "rgb(17 24 39)" : "rgb(238 238 238)"}`,
   };
 
-  const { isPending, execute } = useServerAction(addNote, {
+  const { isPending, execute } = useServerAction(editNote, {
     onSuccess: () => {
-      toast.success("Note made!", {
+      toast.success("Note edited!", {
         style: toastStyle,
       });
       setIsOpen(false);
     },
     onError: () => {
-      toast.error("Couldn't make your note", {
+      toast.error("Couldn't edit your note", {
         style: toastStyle,
       });
     },
@@ -59,7 +63,7 @@ function AddNoteForm({ setIsOpen }: Props) {
         <X size={28} />
       </button>
 
-      <form onSubmit={handleSubmit((values) => execute(values))}>
+      <form onSubmit={handleSubmit((values) => execute({ ...values, noteId }))}>
         <div className="mb-4">
           <label htmlFor="title" className="block text-lg font-semibold">
             Title
@@ -93,7 +97,7 @@ function AddNoteForm({ setIsOpen }: Props) {
             disabled={isPending}
             className="rounded-md bg-primary p-2 font-semibold text-bg1 transition-colors duration-300 hover:bg-primary/70 disabled:bg-primary/70"
           >
-            {isPending ? "Adding note..." : "Add Note"}
+            {isPending ? "Updating..." : "Update note"}
           </button>
         </div>
       </form>
@@ -101,4 +105,4 @@ function AddNoteForm({ setIsOpen }: Props) {
   );
 }
 
-export default AddNoteForm;
+export default EditNoteForm;

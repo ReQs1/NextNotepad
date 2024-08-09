@@ -18,10 +18,7 @@ function DeleteNoteButton({ noteId }: Props) {
       <button
         aria-label="open delete note modal"
         className="text-primary transition-colors duration-300 hover:text-primary/50"
-        onClick={(e) => {
-          e.stopPropagation();
-          setIsOpen(true);
-        }}
+        onClick={() => setIsOpen(true)}
       >
         <Trash size={26} />
       </button>
