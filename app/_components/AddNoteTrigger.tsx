@@ -5,7 +5,7 @@ import { useState } from "react";
 import Modal from "@/app/_components/Modal";
 import AddNoteForm from "@/app/_components/AddNoteForm";
 
-function AddNoteModal() {
+function AddNoteTrigger() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -27,4 +27,4 @@ function AddNoteModal() {
   );
 }
 
-export default AddNoteModal;
+export default AddNoteTrigger;

@@ -3,7 +3,6 @@
 import {
   Dispatch,
   ElementRef,
-  MouseEvent,
   ReactNode,
   SetStateAction,
   useEffect,

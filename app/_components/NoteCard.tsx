@@ -1,8 +1,8 @@
-import DeleteNoteModal from "@/app/_components/DeleteNoteModal";
-import EditNoteModal from "@/app/_components/EditNoteModal";
 import NoteCardTitle from "@/app/_components/NoteCardTitle";
 import { Note } from "@/app/_lib/types";
 import { formatContent } from "@/app/_lib/utils";
+import DeleteNoteTrigger from "@/app/_components/DeleteNoteTrigger";
+import EditNoteTrigger from "@/app/_components/EditNoteTrigger";
 
 type Props = {
   note: Note;
@@ -18,8 +18,8 @@ function NoteCard({ note }: Props) {
         {formatContent(body, 125)}
       </p>
       <div className="mt-auto flex gap-6">
-        <DeleteNoteModal noteId={noteId} />
-        <EditNoteModal note={note} />
+        <DeleteNoteTrigger noteId={noteId} />
+        <EditNoteTrigger note={note} />
       </div>
     </li>
   );

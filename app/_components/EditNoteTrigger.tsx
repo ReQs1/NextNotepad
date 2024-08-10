@@ -10,7 +10,7 @@ type Props = {
   note: Note;
 };
 
-function EditNoteModal({ note }: Props) {
+function EditNoteTrigger({ note }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -32,4 +32,4 @@ function EditNoteModal({ note }: Props) {
   );
 }
 
-export default EditNoteModal;
+export default EditNoteTrigger;

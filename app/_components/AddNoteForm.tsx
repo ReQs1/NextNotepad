@@ -1,15 +1,15 @@
 "use client";
 
 import { addNote } from "@/app/_lib/actions";
+import { NoteSchema } from "@/app/_lib/zodSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Dispatch, SetStateAction } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { z } from "zod";
 import { useServerAction } from "zsa-react";
-import { NoteSchema } from "@/app/_lib/zodSchemas";
-import { X } from "lucide-react";
 
 type Props = {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
