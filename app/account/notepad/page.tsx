@@ -12,11 +12,14 @@ export const metadata: Metadata = {
 type Props = {
   searchParams?: {
     search?: string;
+    currNote?: string;
   };
 };
 
 export default function NotepadPage({ searchParams }: Props) {
   const search = searchParams?.search ?? "";
+  const currNote = searchParams?.currNote ?? "";
+  console.log(currNote);
 
   return (
     <main className="flex-1 px-3 py-10 sm:px-10">

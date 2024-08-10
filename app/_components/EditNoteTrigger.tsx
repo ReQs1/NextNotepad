@@ -18,7 +18,10 @@ function EditNoteTrigger({ note }: Props) {
       <button
         aria-label="edit a note"
         className="text-primary transition-colors duration-300 hover:text-primary/50"
-        onClick={() => setIsOpen(true)}
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen(true);
+        }}
       >
         <Pen size={26} />
       </button>
