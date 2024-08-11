@@ -16,3 +16,18 @@ export async function getNotes() {
 
   return notes;
 }
+
+export async function getCurrentNote(id: string) {
+  const session = await auth();
+  const { userId } = session;
+
+  if (!userId) throw new Error("Unauthorized");
+
+  const note = await db.query.notes.findFirst({
+    where: (notes, { eq }) => eq(notes.id, Number(id)),
+  });
+
+  if (!note) throw new Error("Couldn't fetch notes");
+
+  return note;
+}

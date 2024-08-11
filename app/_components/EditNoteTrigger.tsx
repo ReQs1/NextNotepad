@@ -27,7 +27,7 @@ function EditNoteTrigger({ note }: Props) {
       </button>
 
       {isOpen && (
-        <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+        <Modal isOpen={isOpen} action={setIsOpen}>
           <EditNoteForm setIsOpen={setIsOpen} note={note} />
         </Modal>
       )}

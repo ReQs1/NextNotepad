@@ -28,7 +28,7 @@ function DeleteNoteTrigger({ noteId }: Props) {
 
       {isOpen &&
         createPortal(
-          <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+          <Modal isOpen={isOpen} action={setIsOpen}>
             <DeleteNoteModal setIsOpen={setIsOpen} noteId={noteId} />
           </Modal>,
           document.body,

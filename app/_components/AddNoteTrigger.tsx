@@ -19,7 +19,7 @@ function AddNoteTrigger() {
       </button>
 
       {isOpen && (
-        <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+        <Modal isOpen={isOpen} action={setIsOpen}>
           <AddNoteForm setIsOpen={setIsOpen} />
         </Modal>
       )}
