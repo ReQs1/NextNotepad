@@ -13,7 +13,7 @@ import { createPortal } from "react-dom";
 type Props = {
   children: ReactNode;
   isOpen: boolean;
-  action: Dispatch<SetStateAction<boolean>>;
+  action: () => void;
 };
 
 function Modal({ children, isOpen, action }: Props) {
@@ -22,7 +22,7 @@ function Modal({ children, isOpen, action }: Props) {
   // Close modal on escape key press
   useEffect(() => {
     function onEscClose(e: KeyboardEvent) {
-      if (e.code === "Escape") action(false);
+      if (e.code === "Escape") action();
     }
 
     window.addEventListener("keydown", onEscClose);
@@ -34,7 +34,7 @@ function Modal({ children, isOpen, action }: Props) {
   useEffect(() => {
     function handleClickOutside(e: Event) {
       if (modalRef.current === e.target) {
-        action(false);
+        action();
       }
     }
 

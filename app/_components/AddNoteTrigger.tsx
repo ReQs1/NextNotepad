@@ -8,6 +8,10 @@ import AddNoteForm from "@/app/_components/AddNoteForm";
 function AddNoteTrigger() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <button
@@ -19,7 +23,7 @@ function AddNoteTrigger() {
       </button>
 
       {isOpen && (
-        <Modal isOpen={isOpen} action={setIsOpen}>
+        <Modal isOpen={isOpen} action={closeModal}>
           <AddNoteForm setIsOpen={setIsOpen} />
         </Modal>
       )}

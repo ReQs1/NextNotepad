@@ -13,6 +13,10 @@ type Props = {
 function DeleteNoteTrigger({ noteId }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <button
@@ -28,7 +32,7 @@ function DeleteNoteTrigger({ noteId }: Props) {
 
       {isOpen &&
         createPortal(
-          <Modal isOpen={isOpen} action={setIsOpen}>
+          <Modal isOpen={isOpen} action={closeModal}>
             <DeleteNoteModal setIsOpen={setIsOpen} noteId={noteId} />
           </Modal>,
           document.body,

@@ -13,6 +13,10 @@ type Props = {
 function EditNoteTrigger({ note }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <button
@@ -27,7 +31,7 @@ function EditNoteTrigger({ note }: Props) {
       </button>
 
       {isOpen && (
-        <Modal isOpen={isOpen} action={setIsOpen}>
+        <Modal isOpen={isOpen} action={closeModal}>
           <EditNoteForm setIsOpen={setIsOpen} note={note} />
         </Modal>
       )}
