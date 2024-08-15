@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Dispatch,
-  ElementRef,
-  ReactNode,
-  SetStateAction,
-  useEffect,
-  useRef,
-} from "react";
+import { ElementRef, ReactNode, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 type Props = {
@@ -60,7 +53,7 @@ function Modal({ children, isOpen, action }: Props) {
       <div
         role="modal"
         ref={modalRef}
-        className="absolute left-0 top-0 z-50 flex h-dvh w-dvw items-center justify-center backdrop-blur-sm"
+        className="fixed left-0 top-0 z-50 flex h-dvh w-dvw items-center justify-center backdrop-blur-sm"
         onClick={(e) => e.stopPropagation()}
       >
         {children}

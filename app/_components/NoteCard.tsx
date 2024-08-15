@@ -22,7 +22,7 @@ function NoteCard({ note }: Props) {
     const params = new URLSearchParams(searchParams.toString());
     params.set("currNote", String(noteId));
 
-    router.push(`${pathname}?${params.toString()}`);
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   return (
