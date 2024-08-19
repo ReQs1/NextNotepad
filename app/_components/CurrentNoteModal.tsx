@@ -1,7 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import Modal from "@/app/_components/Modal";
+import { useRouter } from "next/navigation";
 
 type Props = {
   currNote: string;

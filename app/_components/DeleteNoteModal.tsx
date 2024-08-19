@@ -1,3 +1,5 @@
+"use client";
+
 import { deleteNote } from "@/app/_lib/actions";
 import { TriangleAlert, X } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
