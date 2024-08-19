@@ -1,10 +1,11 @@
 "use client";
 
+import CloseModalButton from "@/app/_components/CloseModalButton";
 import { deleteNote } from "@/app/_lib/actions";
-import { TriangleAlert, X } from "lucide-react";
+import { TriangleAlert } from "lucide-react";
+import { useTheme } from "next-themes";
 import { Dispatch, SetStateAction } from "react";
 import toast from "react-hot-toast";
-import { useTheme } from "next-themes";
 import { useServerAction } from "zsa-react";
 
 type Props = {
@@ -36,13 +37,7 @@ function DeleteNoteModal({ setIsOpen, noteId }: Props) {
 
   return (
     <div className="relative flex w-full max-w-[425px] flex-col items-center justify-center gap-6 rounded-xl border-2 bg-bg1 px-4 py-10 sm:px-6">
-      <button
-        className="absolute right-2 top-2"
-        onClick={() => setIsOpen(false)}
-        aria-label="close modal"
-      >
-        <X size={28} />
-      </button>
+      <CloseModalButton setIsOpen={setIsOpen} />
 
       <TriangleAlert size={48} color="red" />
 

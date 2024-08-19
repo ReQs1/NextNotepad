@@ -1,10 +1,10 @@
 "use client";
 
+import CloseModalButton from "@/app/_components/CloseModalButton";
 import { editNote } from "@/app/_lib/actions";
 import { Note } from "@/app/_lib/types";
 import { NoteSchema } from "@/app/_lib/zodSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Dispatch, SetStateAction } from "react";
 import { useForm } from "react-hook-form";
@@ -55,13 +55,7 @@ function EditNoteForm({ setIsOpen, note }: Props) {
   return (
     <div className="relative w-full max-w-[600px] rounded-xl border-2 border-gray-200 bg-bg1 px-3 py-5 shadow-lg sm:p-6">
       <h2 className="mb-4 text-2xl font-semibold text-primary">Add a note</h2>
-      <button
-        onClick={() => setIsOpen(false)}
-        className="absolute right-4 top-4 text-primary hover:text-primary/50"
-        aria-label="close modal"
-      >
-        <X size={28} />
-      </button>
+      <CloseModalButton setIsOpen={setIsOpen} />
 
       <form onSubmit={handleSubmit((values) => execute({ ...values, noteId }))}>
         <div className="mb-4">
