@@ -1,6 +1,8 @@
 "use client";
 
+import CloseModalButton from "@/app/_components/CloseModalButton";
 import { addNote } from "@/app/_lib/actions";
+import { NoteSchema } from "@/app/_lib/zodSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTheme } from "next-themes";
 import { Dispatch, SetStateAction } from "react";
@@ -8,8 +10,6 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { z } from "zod";
 import { useServerAction } from "zsa-react";
-import { NoteSchema } from "@/app/_lib/zodSchemas";
-import { X } from "lucide-react";
 
 type Props = {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -51,13 +51,7 @@ function AddNoteForm({ setIsOpen }: Props) {
   return (
     <div className="relative w-full max-w-[600px] rounded-xl border-2 border-gray-200 bg-bg1 px-3 py-5 shadow-lg sm:p-6">
       <h2 className="mb-4 text-2xl font-semibold text-primary">Add a note</h2>
-      <button
-        onClick={() => setIsOpen(false)}
-        className="absolute right-4 top-4 text-primary hover:text-primary/50"
-        aria-label="close modal"
-      >
-        <X size={28} />
-      </button>
+      <CloseModalButton setIsOpen={setIsOpen} />
 
       <form onSubmit={handleSubmit((values) => execute(values))}>
         <div className="mb-4">

@@ -10,21 +10,28 @@ type Props = {
   note: Note;
 };
 
-function EditNoteModal({ note }: Props) {
+function EditNoteTrigger({ note }: Props) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <>
       <button
         aria-label="edit a note"
         className="text-primary transition-colors duration-300 hover:text-primary/50"
-        onClick={() => setIsOpen(true)}
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen(true);
+        }}
       >
         <Pen size={26} />
       </button>
 
       {isOpen && (
-        <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+        <Modal isOpen={isOpen} action={closeModal}>
           <EditNoteForm setIsOpen={setIsOpen} note={note} />
         </Modal>
       )}
@@ -32,4 +39,4 @@ function EditNoteModal({ note }: Props) {
   );
 }
 
-export default EditNoteModal;
+export default EditNoteTrigger;

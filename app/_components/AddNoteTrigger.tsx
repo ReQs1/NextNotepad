@@ -5,8 +5,12 @@ import { useState } from "react";
 import Modal from "@/app/_components/Modal";
 import AddNoteForm from "@/app/_components/AddNoteForm";
 
-function AddNoteModal() {
+function AddNoteTrigger() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -19,7 +23,7 @@ function AddNoteModal() {
       </button>
 
       {isOpen && (
-        <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+        <Modal isOpen={isOpen} action={closeModal}>
           <AddNoteForm setIsOpen={setIsOpen} />
         </Modal>
       )}
@@ -27,4 +31,4 @@ function AddNoteModal() {
   );
 }
 
-export default AddNoteModal;
+export default AddNoteTrigger;

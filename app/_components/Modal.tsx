@@ -1,48 +1,40 @@
 "use client";
 
-import {
-  Dispatch,
-  ElementRef,
-  MouseEvent,
-  ReactNode,
-  SetStateAction,
-  useEffect,
-  useRef,
-} from "react";
+import { ElementRef, ReactNode, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 type Props = {
   children: ReactNode;
   isOpen: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  action: () => void;
 };
 
-function Modal({ children, isOpen, setIsOpen }: Props) {
+function Modal({ children, isOpen, action }: Props) {
   const modalRef = useRef<ElementRef<"div">>(null);
 
   // Close modal on escape key press
   useEffect(() => {
     function onEscClose(e: KeyboardEvent) {
-      if (e.code === "Escape") setIsOpen(false);
+      if (e.code === "Escape") action();
     }
 
     window.addEventListener("keydown", onEscClose);
 
     return () => window.removeEventListener("keydown", onEscClose);
-  }, [setIsOpen]);
+  }, [action]);
 
   // Close modal on outside click
   useEffect(() => {
     function handleClickOutside(e: Event) {
       if (modalRef.current === e.target) {
-        setIsOpen(false);
+        action();
       }
     }
 
     window.addEventListener("mousedown", handleClickOutside);
 
     return () => window.removeEventListener("mousedown", handleClickOutside);
-  }, [setIsOpen]);
+  }, [action]);
 
   //preventing user from scrolling when modal is opened
 
@@ -61,7 +53,8 @@ function Modal({ children, isOpen, setIsOpen }: Props) {
       <div
         role="modal"
         ref={modalRef}
-        className="absolute left-0 top-0 z-50 flex h-dvh w-dvw items-center justify-center backdrop-blur-sm"
+        className="fixed left-0 top-0 z-50 flex h-dvh w-dvw items-center justify-center backdrop-blur-sm"
+        onClick={(e) => e.stopPropagation()}
       >
         {children}
       </div>,
