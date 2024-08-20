@@ -13,7 +13,7 @@ function CloseModalButton({ setIsOpen }: Props) {
   if (setIsOpen)
     return (
       <button
-        className="absolute right-2 top-2"
+        className="absolute right-4 top-4 text-primary transition-colors duration-300 hover:text-primary/50"
         onClick={() => setIsOpen(false)}
         aria-label="close modal"
       >
@@ -24,7 +24,7 @@ function CloseModalButton({ setIsOpen }: Props) {
   if (!setIsOpen)
     return (
       <button
-        className="absolute right-2 top-2"
+        className="absolute right-4 top-4 text-primary transition-colors duration-300 hover:text-primary/50"
         onClick={() => router.back()}
         aria-label="close modal"
       >

@@ -20,7 +20,9 @@ async function CurrentNoteModalContent({ currNote }: Props) {
           {formatDate(created_at)}
         </p>
       </div>
-      <p className="overflow-auto whitespace-pre-line break-words">{body}</p>
+      <p className="overflow-auto whitespace-pre-line break-words text-primary">
+        {body}
+      </p>
     </div>
   );
 }
