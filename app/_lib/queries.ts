@@ -34,7 +34,8 @@ export async function getCurrentNote(id: number) {
       where: (notes, { eq }) => eq(notes.id, id),
     });
 
-    if (!note) throw new Error("Couldn't fetch user's note");
+    if (!note) throw new Error("Couldn't fetch that note");
+    if (note.userId !== userId) throw new Error("Unauthorized");
 
     return note;
   } catch (error) {
