@@ -31,7 +31,7 @@ function NoteCard({ note }: Props) {
       onClick={handleClick}
     >
       <NoteCardTitle title={title} created_at={created_at} />
-      <p className="whitespace-pre-line break-words text-primary">
+      <p className="overflow-y-auto whitespace-pre-line break-words text-primary">
         {formatContent(body, 125)}
       </p>
       <div className="mt-auto flex gap-6">
