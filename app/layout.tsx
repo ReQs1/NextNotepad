@@ -30,7 +30,13 @@ export default function RootLayout({
           enableSystem={false}
           defaultTheme="light"
         >
-          <ClerkProvider afterSignOutUrl="/sign-in">{children}</ClerkProvider>
+          <ClerkProvider
+            signInFallbackRedirectUrl="/account/notepad"
+            signUpFallbackRedirectUrl="/account/notepad"
+            afterSignOutUrl="/sign-in"
+          >
+            {children}
+          </ClerkProvider>
         </ThemeProvider>
       </body>
     </html>

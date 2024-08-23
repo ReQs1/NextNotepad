@@ -17,8 +17,8 @@ function SignOutBtn() {
     );
 
   return (
-    <SignOutButton redirectUrl="/sign-in">
-      <button className="text-primary flex items-center gap-3">
+    <SignOutButton>
+      <button className="flex items-center gap-3 text-primary">
         <span>
           <LogOut />
         </span>

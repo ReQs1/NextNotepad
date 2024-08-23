@@ -14,7 +14,7 @@ export default async function Page() {
 
   return (
     <main className="flex h-screen items-center justify-center bg-gray-300">
-      <SignIn fallbackRedirectUrl="/account/notepad" />
+      <SignIn />
     </main>
   );
 }
