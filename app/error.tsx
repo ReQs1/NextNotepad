@@ -27,7 +27,7 @@ export default function Error({ error, reset }: Props) {
             Try again
           </button>
           <Link
-            href="/sign-in"
+            href="/"
             className="rounded-md bg-yellow-500 px-3 py-2 text-white transition-colors hover:bg-yellow-400"
           >
             Return Home

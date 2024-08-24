@@ -12,7 +12,7 @@ function NotFound() {
         <div className="flex flex-col items-center gap-3">
           <p className="text-secondary">Could not find requested resource</p>
           <Link
-            href="/sign-in"
+            href="/"
             className="rounded-md bg-yellow-500 px-3 py-2 text-white transition-colors hover:bg-yellow-400"
           >
             Return Home
