@@ -27,7 +27,7 @@ function NoteCard({ note }: Props) {
 
   return (
     <li
-      className="flex max-h-[350px] min-h-72 cursor-pointer flex-col gap-8 rounded-lg border-2 border-secondary/40 bg-bg1 px-6 py-4 shadow-md transition-[border] duration-300 hover:border-primary/80"
+      className="flex max-h-[350px] min-h-72 cursor-pointer flex-col gap-8 rounded-lg border-2 border-secondary/40 bg-bg1 p-4 shadow-md transition-[border] duration-300 hover:border-primary/80"
       onClick={handleClick}
     >
       <NoteCardTitle title={title} created_at={created_at} />
