@@ -42,7 +42,7 @@
   }
 
   .tooltip {
-    @apply invisible absolute right-0 top-1/2 -translate-y-1/2 translate-x-[110%] whitespace-nowrap rounded-lg border border-secondary bg-bg1 px-2 py-1 font-semibold opacity-0 transition group-hover:visible group-hover:opacity-100;
+    @apply invisible absolute right-0 top-1/2 -translate-y-1/2 translate-x-[110%] whitespace-nowrap rounded-lg border border-secondary bg-bg1 px-2 py-1 font-semibold opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus:visible group-focus:opacity-100;
   }
 
   @keyframes rotate {

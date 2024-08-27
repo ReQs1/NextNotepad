@@ -26,7 +26,7 @@ export default function NotepadPage({ searchParams }: Props) {
     <>
       <main className="flex-1 px-3 py-10 sm:px-10">
         <NotesTopInputs />
-        <Suspense fallback={<Spinner />}>
+        <Suspense fallback={<Spinner />} key={search}>
           <NotesList searchQuery={search} />
         </Suspense>
       </main>

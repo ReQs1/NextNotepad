@@ -15,9 +15,14 @@ async function NotesList({ searchQuery }: { searchQuery: string }) {
   let filteredNotes;
 
   if (searchQuery) {
-    filteredNotes = notes.filter((note) =>
-      note.title.toLowerCase().includes(searchQuery.toLowerCase()),
-    );
+    filteredNotes = [
+      ...notes.filter((note) =>
+        note.title.toLowerCase().includes(searchQuery.toLowerCase()),
+      ),
+      ...notes.filter((note) =>
+        note.body.toLowerCase().includes(searchQuery.toLowerCase()),
+      ),
+    ];
   } else {
     filteredNotes = notes;
   }

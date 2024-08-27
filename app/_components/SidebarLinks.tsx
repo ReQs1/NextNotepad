@@ -21,7 +21,7 @@ function SidebarLinks() {
           key={index}
           href={link.path}
           className={cn(
-            "group relative rounded-full p-2 transition-colors duration-300 hover:bg-hoverAccent",
+            "group relative rounded-full p-2 transition-colors duration-300 hover:bg-hoverAccent focus:bg-hoverAccent focus:outline-none",
             {
               ["bg-hoverAccent"]: pathname === link.path,
             },
