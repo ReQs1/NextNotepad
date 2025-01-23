@@ -7,26 +7,27 @@ type Props = {
   children: ReactNode;
   isOpen: boolean;
   action: () => void;
+  isPending: boolean;
 };
 
-function Modal({ children, isOpen, action }: Props) {
+function Modal({ children, isOpen, action, isPending }: Props) {
   const modalRef = useRef<ElementRef<"div">>(null);
 
   // Close modal on escape key press
   useEffect(() => {
     function onEscClose(e: KeyboardEvent) {
-      if (e.code === "Escape") action();
+      if (!isPending && e.code === "Escape") action();
     }
 
     window.addEventListener("keydown", onEscClose);
 
     return () => window.removeEventListener("keydown", onEscClose);
-  }, [action]);
+  }, [action, isPending]);
 
   // Close modal on outside click
   useEffect(() => {
     function handleClickOutside(e: Event) {
-      if (modalRef.current === e.target) {
+      if (!isPending && modalRef.current === e.target) {
         action();
       }
     }
@@ -34,7 +35,7 @@ function Modal({ children, isOpen, action }: Props) {
     window.addEventListener("mousedown", handleClickOutside);
 
     return () => window.removeEventListener("mousedown", handleClickOutside);
-  }, [action]);
+  }, [action, isPending]);
 
   //preventing user from scrolling when modal is opened
 

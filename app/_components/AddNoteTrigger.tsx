@@ -4,6 +4,8 @@ import { PlusIcon } from "lucide-react";
 import { useState } from "react";
 import Modal from "@/app/_components/Modal";
 import AddNoteForm from "@/app/_components/AddNoteForm";
+import useServerActionWithToast from "../_lib/hooks/useSeverActionWithToast";
+import { addNote } from "../_lib/actions";
 
 function AddNoteTrigger() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +13,11 @@ function AddNoteTrigger() {
   const closeModal = () => {
     setIsOpen(false);
   };
+
+  const { execute, isPending } = useServerActionWithToast(addNote, setIsOpen, {
+    successMessage: "Note made!",
+    errorMessage: "Couldn't make your note",
+  });
 
   return (
     <>
@@ -23,8 +30,12 @@ function AddNoteTrigger() {
       </button>
 
       {isOpen && (
-        <Modal isOpen={isOpen} action={closeModal}>
-          <AddNoteForm setIsOpen={setIsOpen} />
+        <Modal isOpen={isOpen} action={closeModal} isPending={isPending}>
+          <AddNoteForm
+            setIsOpen={setIsOpen}
+            execute={execute}
+            isPending={isPending}
+          />
         </Modal>
       )}
     </>

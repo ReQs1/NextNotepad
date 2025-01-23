@@ -5,6 +5,8 @@ import Modal from "@/app/_components/Modal";
 import { Note } from "@/app/_lib/types";
 import { Pen } from "lucide-react";
 import { useState } from "react";
+import useServerActionWithToast from "../_lib/hooks/useSeverActionWithToast";
+import { editNote } from "../_lib/actions";
 
 type Props = {
   note: Note;
@@ -16,6 +18,11 @@ function EditNoteTrigger({ note }: Props) {
   const closeModal = () => {
     setIsOpen(false);
   };
+
+  const { isPending, execute } = useServerActionWithToast(editNote, setIsOpen, {
+    successMessage: "Note edited!",
+    errorMessage: "Couldn't edit your note",
+  });
 
   return (
     <>
@@ -31,8 +38,13 @@ function EditNoteTrigger({ note }: Props) {
       </button>
 
       {isOpen && (
-        <Modal isOpen={isOpen} action={closeModal}>
-          <EditNoteForm setIsOpen={setIsOpen} note={note} />
+        <Modal isOpen={isOpen} action={closeModal} isPending={isPending}>
+          <EditNoteForm
+            setIsOpen={setIsOpen}
+            note={note}
+            isPending={isPending}
+            execute={execute}
+          />
         </Modal>
       )}
     </>

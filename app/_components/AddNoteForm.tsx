@@ -1,21 +1,19 @@
 "use client";
 
 import CloseModalButton from "@/app/_components/CloseModalButton";
-import { addNote } from "@/app/_lib/actions";
 import { NoteSchema } from "@/app/_lib/zodSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useTheme } from "next-themes";
 import { Dispatch, SetStateAction } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import { z } from "zod";
-import { useServerAction } from "zsa-react";
 
 type Props = {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
+  execute: any;
+  isPending: boolean;
 };
 
-function AddNoteForm({ setIsOpen }: Props) {
+function AddNoteForm({ setIsOpen, execute, isPending }: Props) {
   const {
     register,
     handleSubmit,
@@ -25,26 +23,6 @@ function AddNoteForm({ setIsOpen }: Props) {
     defaultValues: {
       title: "",
       body: "",
-    },
-  });
-  const { theme } = useTheme();
-
-  const toastStyle = {
-    background: `${theme === "light" ? "rgb(255 255 255) " : "rgb(34 34 34)"}`,
-    color: `${theme === "light" ? "rgb(17 24 39)" : "rgb(238 238 238)"}`,
-  };
-
-  const { isPending, execute } = useServerAction(addNote, {
-    onSuccess: () => {
-      toast.success("Note made!", {
-        style: toastStyle,
-      });
-      setIsOpen(false);
-    },
-    onError: () => {
-      toast.error("Couldn't make your note", {
-        style: toastStyle,
-      });
     },
   });
 

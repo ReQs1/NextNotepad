@@ -1,23 +1,21 @@
 "use client";
 
 import CloseModalButton from "@/app/_components/CloseModalButton";
-import { editNote } from "@/app/_lib/actions";
 import { Note } from "@/app/_lib/types";
 import { NoteSchema } from "@/app/_lib/zodSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useTheme } from "next-themes";
 import { Dispatch, SetStateAction } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import { z } from "zod";
-import { useServerAction } from "zsa-react";
 
 type Props = {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
   note: Note;
+  execute: any;
+  isPending: boolean;
 };
 
-function EditNoteForm({ setIsOpen, note }: Props) {
+function EditNoteForm({ setIsOpen, note, execute, isPending }: Props) {
   const { title, body, id: noteId } = note;
 
   const {
@@ -29,26 +27,6 @@ function EditNoteForm({ setIsOpen, note }: Props) {
     defaultValues: {
       title,
       body,
-    },
-  });
-  const { theme } = useTheme();
-
-  const toastStyle = {
-    background: `${theme === "light" ? "rgb(255 255 255) " : "rgb(34 34 34)"}`,
-    color: `${theme === "light" ? "rgb(17 24 39)" : "rgb(238 238 238)"}`,
-  };
-
-  const { isPending, execute } = useServerAction(editNote, {
-    onSuccess: () => {
-      toast.success("Note edited!", {
-        style: toastStyle,
-      });
-      setIsOpen(false);
-    },
-    onError: () => {
-      toast.error("Couldn't edit your note", {
-        style: toastStyle,
-      });
     },
   });
 
