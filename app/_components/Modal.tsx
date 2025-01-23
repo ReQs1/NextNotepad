@@ -7,7 +7,7 @@ type Props = {
   children: ReactNode;
   isOpen: boolean;
   action: () => void;
-  isPending: boolean;
+  isPending?: boolean;
 };
 
 function Modal({ children, isOpen, action, isPending }: Props) {
