@@ -1,6 +1,6 @@
 import CloseModalButton from "@/app/_components/CloseModalButton";
 import { getCurrentNote } from "@/app/_lib/queries";
-import { formatDate } from "@/app/_lib/utils";
+import { formatDate } from "@/app/_lib/utils/utils";
 
 type Props = {
   currNote: string;

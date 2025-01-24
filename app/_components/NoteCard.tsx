@@ -4,7 +4,7 @@ import DeleteNoteTrigger from "@/app/_components/DeleteNoteTrigger";
 import EditNoteTrigger from "@/app/_components/EditNoteTrigger";
 import NoteCardTitle from "@/app/_components/NoteCardTitle";
 import { Note } from "@/app/_lib/types";
-import { formatContent } from "@/app/_lib/utils";
+import { formatContent } from "@/app/_lib/utils/utils";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 type Props = {

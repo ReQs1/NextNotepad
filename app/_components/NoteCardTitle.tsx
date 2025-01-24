@@ -1,4 +1,4 @@
-import { formatDate, formatContent } from "@/app/_lib/utils";
+import { formatDate, formatContent } from "@/app/_lib/utils/utils";
 
 type Props = {
   title: string;

@@ -4,7 +4,7 @@ import { SignOutButton } from "@clerk/nextjs";
 import { Calendar, LogOut, NotebookIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/app/_lib/utils";
+import { cn } from "@/app/_lib/utils/utils";
 
 const links = [
   { icon: <NotebookIcon />, path: "/account/notepad", tooltip: "Notepad" },

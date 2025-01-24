@@ -3,7 +3,7 @@
 import MobileLinks from "@/app/_components/MobileLinks";
 import TopNavControls from "@/app/_components/TopNavControls";
 import { useMobileNavbar } from "@/app/_context/MobileNavbarProvider";
-import { cn } from "@/app/_lib/utils";
+import { cn } from "@/app/_lib/utils/utils";
 import { X } from "lucide-react";
 import { useEffect } from "react";
 
