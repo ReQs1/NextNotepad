@@ -1,6 +1,8 @@
 import Calendar from "@/app/_components/calendar/Calendar";
 import { getUserEvents } from "@/app/_lib/queries";
 
+export const dynamic = "force-dynamic";
+
 async function CalendarPage() {
   const userEvents = await getUserEvents();
 
