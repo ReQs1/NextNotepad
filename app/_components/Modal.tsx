@@ -2,6 +2,7 @@
 
 import { ElementRef, ReactNode, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
+import FocusLock from "react-focus-lock";
 
 type Props = {
   children: ReactNode;
@@ -51,14 +52,16 @@ function Modal({ children, isOpen, action, isPending }: Props) {
   return (
     isOpen &&
     createPortal(
-      <div
-        role="modal"
-        ref={modalRef}
-        className="fixed left-0 top-0 z-50 flex h-dvh w-dvw items-center justify-center backdrop-blur-sm"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {children}
-      </div>,
+      <FocusLock>
+        <div
+          role="modal"
+          ref={modalRef}
+          className="fixed left-0 top-0 z-50 flex h-dvh w-dvw items-center justify-center backdrop-blur-sm"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {children}
+        </div>
+      </FocusLock>,
       document.body,
     )
   );
