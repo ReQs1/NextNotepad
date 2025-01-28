@@ -1,7 +1,7 @@
-import CurrentNoteModal from "@/app/_components/CurrentNoteModal";
-import CurrentNoteModalContent from "@/app/_components/CurrentNoteModalContent";
-import NotesList from "@/app/_components/NotesList";
-import NotesTopInputs from "@/app/_components/NotesTopInputs";
+import CurrentNoteModal from "@/app/_components/notes/CurrentNoteModal";
+import CurrentNoteModalContent from "@/app/_components/notes/CurrentNoteModalContent";
+import NotesList from "@/app/_components/notes/NotesList";
+import NotesTopInputs from "@/app/_components/notes/NotesTopInputs";
 import Spinner from "@/app/_components/Spinner";
 import { Metadata } from "next";
 import { Suspense } from "react";

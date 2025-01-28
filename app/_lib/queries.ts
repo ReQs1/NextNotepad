@@ -1,5 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { db } from "@/app/db";
+import { eq } from "drizzle-orm";
+import { events } from "@/app/db/schema";
 
 export async function getNotes() {
   try {
@@ -38,6 +40,27 @@ export async function getCurrentNote(id: number) {
     if (note.userId !== userId) throw new Error("Unauthorized");
 
     return note;
+  } catch (error) {
+    throw new Error(
+      error instanceof Error ? error.message : "Something went wrong",
+    );
+  }
+}
+
+export async function getUserEvents() {
+  try {
+    const session = await auth();
+    const { userId } = session;
+
+    if (!userId) throw new Error("Unauthorized");
+
+    const userEvents = await db.query.events.findMany({
+      where: eq(events.userId, userId),
+    });
+
+    if (!userEvents) throw new Error("Couldn't fetch notes");
+
+    return userEvents;
   } catch (error) {
     throw new Error(
       error instanceof Error ? error.message : "Something went wrong",

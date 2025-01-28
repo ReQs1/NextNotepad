@@ -22,3 +22,26 @@ export const changeNoteSchema = z.object({
     .max(1000, "Body must contain at most 1000 characters"),
   noteId: z.number(),
 });
+
+export const eventSchema = z
+  .object({
+    title: z
+      .string()
+      .min(1, "Title must contain at least 1 character")
+      .max(100, "Title must contain at most 100 characters"),
+    description: z
+      .string()
+      .min(1, "Description must be at least 1 character")
+      .max(1000, "Description must contain at most 1000 characters"),
+    start: z.date(),
+    end: z.date(),
+  })
+  .superRefine((data, ctx) => {
+    if (data.end <= data.start) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "End date must be after start date",
+        path: ["end"],
+      });
+    }
+  });

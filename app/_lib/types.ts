@@ -5,3 +5,12 @@ export type Note = {
   userId: string;
   id: number;
 };
+
+export type Event = {
+  start: Date;
+  id: number;
+  end: Date;
+  title: string;
+  userId: string;
+  description: string;
+};

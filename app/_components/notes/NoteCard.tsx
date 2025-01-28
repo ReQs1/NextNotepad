@@ -1,10 +1,9 @@
 "use client";
 
-import DeleteNoteTrigger from "@/app/_components/DeleteNoteTrigger";
-import EditNoteTrigger from "@/app/_components/EditNoteTrigger";
-import NoteCardTitle from "@/app/_components/NoteCardTitle";
+import DeleteNoteTrigger from "@/app/_components/notes/DeleteNoteTrigger";
+import EditNoteTrigger from "@/app/_components/notes/EditNoteTrigger";
 import { Note } from "@/app/_lib/types";
-import { formatContent } from "@/app/_lib/utils/utils";
+import { formatContent, formatDate } from "@/app/_lib/utils/utils";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 type Props = {
@@ -43,3 +42,22 @@ function NoteCard({ note }: Props) {
 }
 
 export default NoteCard;
+
+function NoteCardTitle({
+  title,
+  created_at,
+}: {
+  title: string;
+  created_at: Date;
+}) {
+  return (
+    <div className="grid gap-1">
+      <h2 className="text-xl font-bold text-primary">
+        {formatContent(title, 20)}
+      </h2>
+      <p className="text-sm font-medium text-secondary">
+        {formatDate(created_at)}
+      </p>
+    </div>
+  );
+}

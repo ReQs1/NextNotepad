@@ -3,9 +3,9 @@
 import { PlusIcon } from "lucide-react";
 import { useState } from "react";
 import Modal from "@/app/_components/Modal";
-import AddNoteForm from "@/app/_components/AddNoteForm";
-import useServerActionWithToast from "../_lib/hooks/useSeverActionWithToast";
-import { addNote } from "../_lib/actions";
+import AddNoteForm from "@/app/_components/notes/AddNoteForm";
+import useServerActionWithToast from "../../_lib/hooks/useSeverActionWithToast";
+import { addNote } from "../../_lib/actions";
 
 function AddNoteTrigger() {
   const [isOpen, setIsOpen] = useState(false);

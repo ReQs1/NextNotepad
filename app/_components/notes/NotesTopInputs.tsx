@@ -1,5 +1,5 @@
-import SearchInput from "@/app/_components/SearchInput";
-import AddNoteTrigger from "@/app/_components/AddNoteTrigger";
+import SearchInput from "@/app/_components/notes/SearchInput";
+import AddNoteTrigger from "@/app/_components/notes/AddNoteTrigger";
 
 function NotesTopInputs() {
   return (

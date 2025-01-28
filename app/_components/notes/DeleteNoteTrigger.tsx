@@ -4,9 +4,9 @@ import Modal from "@/app/_components/Modal";
 import { Trash } from "lucide-react";
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import DeleteNoteModal from "@/app/_components/DeleteNoteModal";
-import useServerActionWithToast from "../_lib/hooks/useSeverActionWithToast";
-import { deleteNote } from "../_lib/actions";
+import DeleteNoteModal from "@/app/_components/notes/DeleteNoteModal";
+import useServerActionWithToast from "../../_lib/hooks/useSeverActionWithToast";
+import { deleteNote } from "../../_lib/actions";
 
 type Props = {
   noteId: number;

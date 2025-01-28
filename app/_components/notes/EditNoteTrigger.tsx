@@ -1,12 +1,12 @@
 "use client";
 
-import EditNoteForm from "@/app/_components/EditNoteForm";
+import EditNoteForm from "@/app/_components/notes/EditNoteForm";
 import Modal from "@/app/_components/Modal";
 import { Note } from "@/app/_lib/types";
 import { Pen } from "lucide-react";
 import { useState } from "react";
-import useServerActionWithToast from "../_lib/hooks/useSeverActionWithToast";
-import { editNote } from "../_lib/actions";
+import useServerActionWithToast from "@/app/_lib/hooks/useSeverActionWithToast";
+import { editNote } from "@/app/_lib/actions";
 
 type Props = {
   note: Note;

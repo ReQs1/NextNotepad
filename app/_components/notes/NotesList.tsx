@@ -1,4 +1,4 @@
-import NoteCard from "@/app/_components/NoteCard";
+import NoteCard from "@/app/_components/notes/NoteCard";
 import { getNotes } from "@/app/_lib/queries";
 
 async function NotesList({ searchQuery }: { searchQuery: string }) {
