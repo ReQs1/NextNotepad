@@ -27,7 +27,10 @@ function Modal({ children, isOpen, action, isPending }: Props) {
 
   // Close modal on outside click
   useEffect(() => {
-    function handleClickOutside(e: Event) {
+    function handleClickOutside(e: MouseEvent) {
+      // Check if it's not a left click so we can do nothing
+      if (e.button !== 0) return;
+
       if (!isPending && modalRef.current === e.target) {
         action();
       }
