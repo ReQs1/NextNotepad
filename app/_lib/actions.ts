@@ -2,12 +2,18 @@
 
 import { authedProcedure } from "@/app/_lib/actionProcedures";
 import { getNotes } from "@/app/_lib/queries";
-import { changeNoteSchema, NoteSchema } from "@/app/_lib/zodSchemas";
+import {
+  changeNoteSchema,
+  eventSchema,
+  NoteSchema,
+} from "@/app/_lib/zodSchemas";
 import { db } from "@/app/db";
-import { notes } from "@/app/db/schema";
+import { events, notes } from "@/app/db/schema";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
+
+// notes
 
 export const addNote = authedProcedure
   .createServerAction()
@@ -73,4 +79,29 @@ export const editNote = authedProcedure
     }
 
     revalidatePath("/account/notepad");
+  });
+
+// events/calendar
+
+export const addEvent = authedProcedure
+  .createServerAction()
+  .input(eventSchema)
+  .handler(async ({ input, ctx }) => {
+    try {
+      const { userId } = ctx;
+      const newEvent = {
+        title: input.title,
+        description: input.description,
+        start: new Date(input.start),
+        end: new Date(input.end),
+        userId,
+      };
+      await db.insert(events).values(newEvent);
+    } catch (error) {
+      throw new Error(
+        error instanceof Error ? error.message : "Something went wrong",
+      );
+    }
+
+    revalidatePath("/account/calendar");
   });

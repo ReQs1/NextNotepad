@@ -33,11 +33,14 @@ export const eventSchema = z
       .string()
       .min(1, "Description must be at least 1 character")
       .max(1000, "Description must contain at most 1000 characters"),
-    start: z.date(),
-    end: z.date(),
+    start: z.string(),
+    end: z.string(),
   })
   .superRefine((data, ctx) => {
-    if (data.end <= data.start) {
+    const startDate = new Date(data.start);
+    const endDate = new Date(data.end);
+
+    if (endDate < startDate) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         message: "End date must be after start date",

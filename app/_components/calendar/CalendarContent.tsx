@@ -78,9 +78,9 @@ export function CalendarSquares({
             .map((event) => (
               <div
                 key={event.id}
-                className="mb-1 truncate rounded bg-blue-200 p-1 text-xs"
+                className="mb-1 truncate rounded bg-purple-400 p-1 text-xs"
               >
-                {event.title}
+                <p className="text-priamry font-semibold">{event.title}</p>
               </div>
             ))}
         </div>
