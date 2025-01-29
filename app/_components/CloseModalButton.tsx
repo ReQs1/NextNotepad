@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 
 type Props = {
-  setIsOpen?: Dispatch<SetStateAction<boolean>>;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 function CloseModalButton({ setIsOpen }: Props) {

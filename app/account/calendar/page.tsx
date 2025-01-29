@@ -1,7 +1,14 @@
 import Calendar from "@/app/_components/calendar/Calendar";
 import { getUserEvents } from "@/app/_lib/queries";
+import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Calendar",
+  description:
+    "View and manage your events with our interactive calendar. Stay organized and never miss an important date!",
+};
 
 async function CalendarPage() {
   const userEvents = await getUserEvents();
