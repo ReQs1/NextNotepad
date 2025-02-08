@@ -67,3 +67,25 @@ export async function getUserEvents() {
     );
   }
 }
+
+export async function getCurrentEvent(eventId: string) {
+  try {
+    const session = await auth();
+    const { userId } = session;
+
+    if (!userId) throw new Error("Unauthorized");
+
+    const event = await db.query.events.findFirst({
+      where: eq(events.id, Number(eventId)),
+    });
+
+    if (!event) throw new Error("Couldn't fetch this note");
+    if (event.userId !== userId) throw new Error("Unauthorized");
+
+    return event;
+  } catch (error) {
+    throw new Error(
+      error instanceof Error ? error.message : "Something went wrong",
+    );
+  }
+}

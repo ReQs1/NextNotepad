@@ -1,6 +1,7 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/app/_lib/utils/utils";
 import { Event } from "@/app/_lib/types";
+import UsersEvents from "@/app/_components/calendar/UsersEvents";
 
 export function CalendarHeader({
   currentDate,
@@ -71,18 +72,7 @@ export function CalendarSquares({
               {date.toLocaleString("en-US", { weekday: "short" })}
             </span>
           </div>
-          {events
-            .filter(
-              (event) => event.start.toDateString() === date.toDateString(),
-            )
-            .map((event) => (
-              <div
-                key={event.id}
-                className="mb-1 truncate rounded bg-purple-400 p-1 text-xs"
-              >
-                <p className="text-priamry font-semibold">{event.title}</p>
-              </div>
-            ))}
+          <UsersEvents events={events} date={date} />
         </div>
       ))}
     </div>
