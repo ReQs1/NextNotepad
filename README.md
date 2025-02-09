@@ -12,8 +12,3 @@ To access the application, you can use the following credentials:
 
 - Email: test@test.com
 - Password: test12345
-
-Todo:
-
-- [] calendar/timeline page
-- [] delete/edit buttons in note modal

@@ -1,6 +1,7 @@
 import Calendar from "@/app/_components/calendar/Calendar";
 import EventModal from "@/app/_components/calendar/currentEventModal/EventModal";
 import EventModalContent from "@/app/_components/calendar/currentEventModal/EventModalContent";
+import DeleteEventModal from "@/app/_components/calendar/deleteModal/DeleteEventModal";
 import Spinner from "@/app/_components/Spinner";
 import { getUserEvents } from "@/app/_lib/queries";
 import { Metadata } from "next";
@@ -17,10 +18,10 @@ export const metadata: Metadata = {
 async function CalendarPage({
   searchParams,
 }: {
-  searchParams: { eventId?: string };
+  searchParams: { eventId?: string; eventDelete?: string };
 }) {
   const userEvents = await getUserEvents();
-  const { eventId } = searchParams;
+  const { eventId, eventDelete } = searchParams;
 
   return (
     <>
@@ -35,6 +36,8 @@ async function CalendarPage({
           </Suspense>
         </EventModal>
       )}
+
+      {eventDelete && <DeleteEventModal deleteModalId={eventDelete} />}
     </>
   );
 }

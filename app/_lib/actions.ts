@@ -1,7 +1,7 @@
 "use server";
 
 import { authedProcedure } from "@/app/_lib/actionProcedures";
-import { getNotes } from "@/app/_lib/queries";
+import { getNotes, getUserEvents } from "@/app/_lib/queries";
 import {
   changeNoteSchema,
   eventSchema,
@@ -39,7 +39,7 @@ export const addNote = authedProcedure
 export const deleteNote = authedProcedure
   .createServerAction()
   .input(z.object({ noteId: z.number() }))
-  .handler(async ({ input, ctx }) => {
+  .handler(async ({ input }) => {
     try {
       const usersNotes = await getNotes();
       const isUsersNote = usersNotes.some((note) => note.id === input.noteId);
@@ -104,4 +104,29 @@ export const addEvent = authedProcedure
     }
 
     revalidatePath("/account/calendar");
+  });
+
+export const deleteEvent = authedProcedure
+  .createServerAction()
+  .input(
+    z.object({
+      eventId: z.number(),
+    }),
+  )
+  .handler(async ({ input }) => {
+    try {
+      // await new Promise((res) => setTimeout(res, 5000));
+      const usersEvents = await getUserEvents();
+      const isUsersEvent = usersEvents.some(
+        (event) => event.id === input.eventId,
+      );
+
+      if (!isUsersEvent) throw new Error("Unauthorized");
+
+      await db.delete(events).where(eq(events.id, input.eventId));
+    } catch (error) {
+      throw new Error(
+        error instanceof Error ? error.message : "Something went wrong",
+      );
+    }
   });
