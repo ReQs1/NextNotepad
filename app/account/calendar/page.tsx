@@ -29,7 +29,7 @@ async function CalendarPage({
         <Calendar events={userEvents} />
       </main>
 
-      {eventId && (
+      {eventId && !eventDelete && (
         <EventModal eventId={eventId}>
           <Suspense key={eventId} fallback={<Spinner />}>
             <EventModalContent eventId={eventId} />
@@ -37,7 +37,9 @@ async function CalendarPage({
         </EventModal>
       )}
 
-      {eventDelete && <DeleteEventModal deleteModalId={eventDelete} />}
+      {eventDelete && !eventId && (
+        <DeleteEventModal deleteModalId={eventDelete} />
+      )}
     </>
   );
 }

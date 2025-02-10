@@ -11,6 +11,7 @@ import { db } from "@/app/db";
 import { events, notes } from "@/app/db/schema";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { z } from "zod";
 
 // notes
@@ -115,7 +116,6 @@ export const deleteEvent = authedProcedure
   )
   .handler(async ({ input }) => {
     try {
-      // await new Promise((res) => setTimeout(res, 5000));
       const usersEvents = await getUserEvents();
       const isUsersEvent = usersEvents.some(
         (event) => event.id === input.eventId,
@@ -129,4 +129,7 @@ export const deleteEvent = authedProcedure
         error instanceof Error ? error.message : "Something went wrong",
       );
     }
+
+    // revalidatePath("account/calendar");
+    redirect("account/calendar");
   });
