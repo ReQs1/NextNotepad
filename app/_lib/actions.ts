@@ -130,6 +130,5 @@ export const deleteEvent = authedProcedure
       );
     }
 
-    // revalidatePath("account/calendar");
-    redirect("account/calendar");
+    redirect("/account/calendar");
   });
