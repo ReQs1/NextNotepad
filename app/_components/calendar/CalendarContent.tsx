@@ -38,9 +38,9 @@ export function WeekDays() {
   const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   return (
-    <div className="mb-4 grid grid-cols-7 gap-1">
+    <div className="mt-2 grid grid-cols-7 gap-1">
       {weekDays.map((day) => (
-        <div key={day} className="hidden p-2 text-center font-bold sm:block">
+        <div key={day} className="hidden p-2 font-bold sm:block">
           {day}
         </div>
       ))}
